@@ -55,7 +55,7 @@ A responsive Todo List application built with React, TypeScript, and react-beaut
 2. **Install dependencies**
 
    ```bash
-   npm install
+   npm install --force 
    # or
    yarn install
    ```
