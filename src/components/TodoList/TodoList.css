@@ -1,7 +1,21 @@
 .todos {
     display: flex;
-    justify-content: center;
-    width: 90%;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 5px;
+    width: 47.5%;
+    background-color: rgb(50, 195, 205);
 }
 
+.todos__heading {
+    font-size: 30px;
+    color: white;
+}
+
+.container {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: flex-start;
+}
