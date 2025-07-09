@@ -51,4 +51,8 @@
 
 .remove {
   background-color: rgb(235, 103, 80);
+} 
+
+.drag {
+  box-shadow: 0 0 20px black;
 }
