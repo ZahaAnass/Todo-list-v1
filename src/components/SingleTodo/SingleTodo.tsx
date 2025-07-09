@@ -3,6 +3,7 @@ import { Todo } from '../../model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SingleTodo.css';
 import { faPen, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Draggable } from 'react-beautiful-dnd';
 
 type Props = {
@@ -69,13 +70,13 @@ const SingleTodo: React.FC<Props> = ({ index, todo, todos, setTodos }) => {
                                 setEdit(!edit);
                             }
                         }}>
-                            <FontAwesomeIcon icon={faPen} />
+                            <FontAwesomeIcon icon={faPen as IconProp} />
                         </span>
                         <span className="icon" onClick={() => {handleDelete(todo.id)}}>
-                            <FontAwesomeIcon icon={faTrash}/>
+                            <FontAwesomeIcon icon={faTrash as IconProp}/>
                         </span>
                         <span className="icon" onClick={() => {handleDone(todo.id)}}>
-                            <FontAwesomeIcon icon={faCheck} />
+                            <FontAwesomeIcon icon={faCheck as IconProp} />
                         </span>
                     </div>
                 </form>
