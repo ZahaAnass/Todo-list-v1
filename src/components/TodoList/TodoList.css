@@ -19,3 +19,11 @@
     margin-top: 10px;
     align-items: flex-start;
 }
+
+.dragActive {
+    background-color: rgba(50, 195, 205, 0.8);
+}
+
+.dragComplete {
+    background-color: rgba(235, 103, 80, 0.8);
+}
