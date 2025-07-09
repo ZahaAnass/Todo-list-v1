@@ -1,46 +1,138 @@
-# Getting Started with Create React App
+# Todo List with Drag & Drop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive Todo List application built with React, TypeScript, and react-beautiful-dnd. Manage your tasks with an intuitive drag-and-drop interface.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- **Interactive Drag & Drop**
+  - Reorder tasks within the same list
+  - Move tasks between Active and Completed lists
+  - Smooth animations during drag operations
 
-### `npm start`
+- **Task Management**
+  - Add new tasks with ease
+  - Edit tasks inline with a single click
+  - Mark tasks as complete/incomplete
+  - Delete tasks you no longer need
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Modern UI/UX**
+  - Clean, responsive design
+  - Intuitive icons for actions
+  - Visual feedback during interactions
+  - Mobile-friendly layout
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🛠️ Technologies Used
 
-### `npm test`
+- **Frontend**
+  - React 17
+  - TypeScript
+  - react-beautiful-dnd (v13.1.1)
+  - Font Awesome 5.15.4
+  - CSS3 for styling
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Development Tools**
+  - Create React App (TypeScript template)
+  - ESLint
+  - Prettier
+  - TypeScript 4.9.5
 
-### `npm run build`
+## 🚀 Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v14 or later)
+- npm (v6 or later) or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   git clone https://github.com/ZahaAnass/Todo-list-v1.git
+   cd Todo-list-v1
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. **Start the development server**
 
-## Learn More
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Open in browser**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   The application will open automatically in your default browser at [http://localhost:3000](http://localhost:3000)
+
+## 🎯 Project Structure
+
+``` bash
+src/
+├── components/
+│   ├── InputFeild/
+│   │   ├── index.tsx          # Input field component
+│   │   └── InputFeild.css     # Component styles
+│   ├── SingleTodo/
+│   │   ├── index.tsx          # Individual todo item component
+│   │   └── SingleTodo.css     # Component styles
+│   └── TodoList/
+│       ├── TodoList.tsx       # Todo list container component
+│       └── TodoList.css       # Component styles
+├── model.ts                   # TypeScript type definitions
+├── App.tsx                    # Main application component
+├── index.tsx                  # Application entry point
+└── index.css                  # Global styles
+```
+
+## 📝 Usage
+
+1. **Adding a Task**
+   - Type your task in the input field
+   - Press Enter or click the Add button
+
+2. **Editing a Task**
+   - Click the pencil icon next to the task
+   - Make your changes
+   - Press Enter or click outside to save
+
+3. **Completing a Task**
+   - Click the checkmark icon
+   - Or drag the task to the Completed section
+
+4. **Reordering Tasks**
+   - Click and hold to drag
+   - Drag to the desired position
+   - Release to drop
+
+5. **Deleting a Task**
+   - Click the trash can icon
+
+## 🔧 Troubleshooting
+
+If you encounter any issues:
+
+1. **Dependency Issues**
+
+   ```bash
+   rm -rf node_modules package-lock.json
+   npm install --legacy-peer-deps
+   ```
+
+2. **TypeScript Errors**
+
+   - Ensure all type definitions are installed
+   - Check for version conflicts in `package.json`
+
+## 🙏 Acknowledgments
+
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) for the excellent drag and drop functionality
+- [Font Awesome](https://fontawesome.com/) for the beautiful icons
+- [Create React App](https://create-react-app.dev/) for the project setup
