@@ -3,14 +3,16 @@ import { Todo } from '../../model';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SingleTodo.css';
 import { faPen, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Draggable } from 'react-beautiful-dnd';
 
 type Props = {
+    index: number;
     todo: Todo;
     todos: Todo[];
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
 
-const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
+const SingleTodo: React.FC<Props> = ({ index, todo, todos, setTodos }) => {
 
     const [edit, setEdit] = React.useState<boolean>(false);
     const [editTodo, setEditTodo] = React.useState<string>(todo.todo);
@@ -42,37 +44,44 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
 
     return (
-        <form className="todos__single" onSubmit={(e) => handleEdit(e, todo.id)}>
-            {
-                edit ? (
-                    <input 
-                        ref={inputRef}
-                        value={editTodo} 
-                        onChange={(e) => setEditTodo(e.target.value)} 
-                        className="todos__single--text" 
-                    />
-                ):todo.isDone ? (
-                    <s className="todos__single--text">{todo.todo}</s>
-                ):(
-                    <span className="todos__single--text">{todo.todo}</span>
-                )
-            }
-            <div>
-                <span className="icon" onClick={() => {
-                    if(!edit && !todo.isDone) {
-                        setEdit(!edit);
+        <Draggable draggableId={String(todo.id)} index={index}>
+            {(provided, snapshot) => (
+                <form className={`todos__single ${snapshot.isDragging ? "drag": "" }`} onSubmit={(e) => handleEdit(e, todo.id)}
+                    {...provided.draggableProps} {...provided.dragHandleProps}
+                    ref={provided.innerRef}>
+                    {
+                        edit ? (
+                            <input 
+                                ref={inputRef}
+                                value={editTodo} 
+                                onChange={(e) => setEditTodo(e.target.value)} 
+                                className="todos__single--text" 
+                            />
+                        ):todo.isDone ? (
+                            <s className="todos__single--text">{todo.todo}</s>
+                        ):(
+                            <span className="todos__single--text">{todo.todo}</span>
+                        )
                     }
-                }}>
-                    <FontAwesomeIcon icon={faPen} />
-                </span>
-                <span className="icon" onClick={() => {handleDelete(todo.id)}}>
-                    <FontAwesomeIcon icon={faTrash}/>
-                </span>
-                <span className="icon" onClick={() => {handleDone(todo.id)}}>
-                    <FontAwesomeIcon icon={faCheck} />
-                </span>
-            </div>
-        </form>
+                    <div>
+                        <span className="icon" onClick={() => {
+                            if(!edit && !todo.isDone) {
+                                setEdit(!edit);
+                            }
+                        }}>
+                            <FontAwesomeIcon icon={faPen} />
+                        </span>
+                        <span className="icon" onClick={() => {handleDelete(todo.id)}}>
+                            <FontAwesomeIcon icon={faTrash}/>
+                        </span>
+                        <span className="icon" onClick={() => {handleDone(todo.id)}}>
+                            <FontAwesomeIcon icon={faCheck} />
+                        </span>
+                    </div>
+                </form>
+            )}
+
+        </Draggable>
     );
 };
 
